@@ -44,7 +44,8 @@ if( isset($_GET['action']) ){
                     "desc"  => $description
                 ]);
 
-                header("location: .");
+             //   var_dump($pdo->lastInsertId());
+                  header("location: .");
                 exit;
             }
 
@@ -52,7 +53,7 @@ if( isset($_GET['action']) ){
             break;
 
         case "detail":
-            $chambre = getOne("chambre", "numChambre", $_GET["id"]);
+            $chambre = getOne("chambre", "numChambre", $_GET['id']);
 
             include "vue/detail.php";
             break;

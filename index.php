@@ -2,7 +2,7 @@
 
 include "fonction.php";
 
-$chambres = getAll();
+$chambres = getAll("chambre");
 
 
 include 'vue/header.php';
