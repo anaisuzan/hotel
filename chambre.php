@@ -11,18 +11,23 @@ if( isset($_GET['action']) ){
             if( isset($_POST['prix']) ){
 
                 //upload img
+                // test si le fichier existe
                 if(isset($_FILES['image']['name'])){
+                    // pathinfo renvoie es infos du fichier uploadé
                     $infoImage = pathinfo($_FILES['image']['name']);
-                    $extensions = ["jpeg", "jpg', png"];
-                    var_dump($infoImage['extension']);
 
-                    var_dump($infoImage['extension']);
+                    // On crée une liste d'extensions autorisées
+                    $extensions = ["jpeg", "jpg', png"];
+
+                    // test si l'extension du fichier est autorisée
                     if( in_array($infoImage['extension'], $extensions) ){
-                        
-                    var_dump($infoImage);
+                        move_uploaded_file($_FILES['image']['tmp_name'], "utils/
+                        img/".$_FILES['image']['tmp_name']);
                     }
 
                 }
+                
+                $query =  'INSERT INTO '
             }
 
             include "vue/addChbre.php";
