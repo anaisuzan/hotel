@@ -52,10 +52,7 @@ if( isset($_GET['action']) ){
             break;
 
         case "detail":
-            $stmt = $pdo->prepare("SELECT * FROM chambre WHERE numChambre = ?");
-            $stmt->execute([$_GET['id']]);
-
-            $chambre = $stmt->fetch();
+            $chambre = getOne("chambre", "numChambre", $_GET["id"]);
 
             include "vue/detail.php";
             break;
