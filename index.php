@@ -1,4 +1,7 @@
 <?php
+include 'fonction.php';
+
+$chambres = getAll();
 
 include 'vue/header.php';
 

@@ -27,7 +27,7 @@ if( isset($_GET['action']) ){
 
                 }
                 
-                $query =  'INSERT INTO '
+                $query =  'INSERT INTO ';
             }
 
             include "vue/addChbre.php";
