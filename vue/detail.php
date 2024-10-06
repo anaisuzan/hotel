@@ -13,9 +13,9 @@
 
 <?php  if(isset($_SESSION['user'])): ?>
 
-<?php  if($_SESSION['user']['role'] == "client"): ?>
-    <a href="#" class="btn btn-success" onclick="toggleReservationForm()">Réserver</a>
-<?php  endif ?>
+    <?php  if($_SESSION['user']['role'] == "client"): ?>
+        <a href="#" class="btn btn-success" onclick="toggleReservationForm()">Réserver</a>
+    <?php  endif ?>
 <?php  endif ?>
 
 
