@@ -11,7 +11,14 @@
     <?= $chambre['description'] ?>
 </p>
 
-<a href="#" class="btn btn-success" onclick="toggleReservationForm()">Réserver</a>
+<?php  if(isset($_SESSION['user'])): ?>
+
+<?php  if($_SESSION['user']['role'] == "client"): ?>
+    <a href="#" class="btn btn-success" onclick="toggleReservationForm()">Réserver</a>
+<?php  endif ?>
+<?php  endif ?>
+
+
 
 <div id="reservationForm" style="display: none; margin-top: 20px;">
     <h2 class="text-center">Réserver Chambre</h2>
@@ -44,6 +51,7 @@
             <input type="date" class="form-control" name="dateDepart" id="dateDepart" required>
         </div>
 
+        
         <input type="submit" class="btn btn-outline-success mt-2" value="Réserver">
     </form>
 </div>

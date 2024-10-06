@@ -8,9 +8,15 @@
             <p class="card-text"><?= $chambre['nbLits'] ?> lit</p>
             <p class="card-text"><?= $chambre['nbPers'] ?> personne(s)</p>
             <a href="chambre.php?action=detail&id=<?= $chambre['numChambre'] ?>" class="btn btn-primary">Détail</a>
-            <a href="chambre.php?action=supprimer&id=<?= $chambre['numChambre'] ?>" 
-               class="btn btn-danger"
-               onclick="return confirmSuppression(<?= $chambre['numChambre'] ?>)">Supprimer</a>
+
+            <?php  if(isset($_SESSION['user'])): ?>
+                <?php  if($_SESSION['user']['role'] == "administrateur" || $_SESSION['user']['role'] == "receptionniste" ): ?>
+                    <a href="chambre.php?action=supprimer&id=<?= $chambre['numChambre'] ?>" 
+                    class="btn btn-danger"
+                    onclick="return confirmSuppression(<?= $chambre['numChambre'] ?>)">Supprimer</a>
+                <?php  endif ?>
+            <?php  endif ?>
+
         </div>
     </div>
 <?php endforeach; ?>

@@ -19,13 +19,11 @@ if( isset($_POST['dateArrivee']) && isset($_POST['dateDepart']) ){
             $stmt = $pdo->prepare(" INSERT INTO reservation (numClient, numChambre, dateArrivee, dateDepart) 
                 VALUES (:numClient, :numChambre, :dateArrivee, :dateDepart) ");
 
-            // Liaison des paramètres
             $stmt->bindParam(':numClient', $numClient, PDO::PARAM_INT);
             $stmt->bindParam(':numChambre', $numChambre, PDO::PARAM_INT);
             $stmt->bindParam(':dateArrivee', $dateArrivee, PDO::PARAM_STR);
             $stmt->bindParam(':dateDepart', $dateDepart, PDO::PARAM_STR);
 
-            // Exécution de la requête
             $stmt->execute();
 
             echo "Réservation effectuée avec succès !";
