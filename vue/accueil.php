@@ -10,7 +10,7 @@
             <a href="chambre.php?action=detail&id=<?= $chambre['numChambre'] ?>" class="btn btn-primary">Détail</a>
 
             <?php  if(isset($_SESSION['user'])): ?>
-                <?php  if($_SESSION['user']['role'] == "administrateur" || $_SESSION['user']['role'] == "receptionniste" ): ?>
+                <?php  if($_SESSION['user']['role'] == "administrateur"): ?>
                     <a href="chambre.php?action=supprimer&id=<?= $chambre['numChambre'] ?>" 
                     class="btn btn-danger"
                     onclick="return confirmSuppression(<?= $chambre['numChambre'] ?>)">Supprimer</a>
