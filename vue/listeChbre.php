@@ -3,7 +3,6 @@
 include "fonction.php";
 
 $chambres = getAll("chambre");
-echo "butre"
 
 include 'vue/header.php';
 
