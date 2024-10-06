@@ -16,10 +16,10 @@
         <?php  if(isset($_SESSION['user'])): ?>
 
             <?php  if($_SESSION['user']['role'] == "administrateur"): ?>
-                <a href="chambre.php?action=ajouter" class="btn btn-success">Ajouter</a>
+                <a href="chambre.php?action=ajouter_form" class="btn btn-success">Ajouter</a>
+                <a href="chambre.php?action=reservation" class="btn btn-success">Liste Réservations</a>
             <?php  endif ?>
             
-            <a href="?action=afficher" class="btn btn-success">Liste Res</a>
             <a href="fonction.php?action=logout" class="btn btn-success">Déconnexion</a>
         <?php  else: ?>
             <a href="vue/connexion.php" class="btn btn-success">Connexion</a>

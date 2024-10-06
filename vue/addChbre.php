@@ -1,8 +1,7 @@
 
-    <!-- <script src="utils/js/script.js"></script> -->
     <h2 class="text-center">Ajouter Chambres</h2>
 
-    <form method="post" action="index.php" enctype="multipart/form-data" id="form">
+    <form method="post" action="chambre.php?action=ajouter" enctype="multipart/form-data" id="form">
         
         <div class="form-group">
             <label for="">Prix</label>
@@ -46,43 +45,52 @@
 
         prix.addEventListener("blur", () => {
             PasErreur = false;
-            if( prix.value >= 50 && prix.value <= 250 ){
+            if (prix.value >= 50 && prix.value <= 250) {
                 errPrix.innerHTML = "";
                 PasErreur = true;
-            }else{
+            } else {
                 errPrix.innerHTML = "Le prix doit être compris entre 50 et 250 € !";
             }
-            
-        })
+        });
 
-            
-        nbLit.addEventListener("blur",() => {
+        nbLit.addEventListener("blur", () => {
             PasErreur = false;
-            if( nbLit.value != 2 ){
+            if (nbLit.value != 2) {
                 errLit.innerHTML = "Le nombre de lit doit être à 2 !";
-            }
-            else{
-                errLit.innerHTML = ""
+            } else {
+                errLit.innerHTML = "";
                 PasErreur = true;
             }
-        })
+        });
 
-        nbPers.addEventListener("blur",() => {
+        nbPers.addEventListener("blur", () => {
             PasErreur = false;
-            if( nbPers.value >= 1 && nbPers.value <= 4){ 
+            if (nbPers.value >= 1 && nbPers.value <= 4) {
                 errPers.innerHTML = "";
                 PasErreur = true;
-            }else{
-                errPers.innerHTML = "Le nombre de personnes doit être compris entre 1 et 4 !"                
+            } else {
+                errPers.innerHTML = "Le nombre de personnes doit être compris entre 1 et 4 !";
             }
-        })
-
+        });
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            if( PasErreur = true ) form.submit();
-        })
 
+            if (prix.value >= 50 && prix.value <= 250 &&
+                nbLit.value == 2 &&
+                nbPers.value >= 1 && nbPers.value <= 4) {
+                PasErreur = true;
+            } else {
+                PasErreur = false;
+            }
 
-        function ById(id){return document.getElementById(id);}
+            if (PasErreur === true) {
+                form.submit();
+            }
+        });
+
+        function ById(id) {
+            return document.getElementById(id);
+        }
     </script>
+
